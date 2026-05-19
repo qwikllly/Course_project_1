@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<catalog>
+    <product>
+        <id>1</id>
+        <name>Мёд цветочный</name>
+        <price>18.50</price>
+        <category>honey</category>
+        <image>honey.png</image>
+        <organic>true</organic>
+    </product>
+    <product>
+        <id>2</id>
+        <name>Домашний сыр</name>
+        <price>21.00</price>
+        <category>dairy</category>
+        <image>cheese.png</image>
+        <organic>true</organic>
+    </product>
+    <product>
+        <id>3</id>
+        <name>Творог</name>
+        <price>6.80</price>
+        <category>dairy</category>
+        <image>tvorog.png</image>
+        <organic>true</organic>
+    </product>
+    <product>
+        <id>4</id>
+        <name>Яблоки «Белорусочка»</name>
+        <price>4.20</price>
+        <category>fruits</category>
+        <image>apple.png</image>
+        <organic>false</organic>
+    </product>
+    <product>
+        <id>5</id>
+        <name>Томаты</name>
+        <price>8.20</price>
+        <category>vegetables</category>
+        <image>tomato.png</image>
+        <organic>true</organic>
+    </product>
+    <product>
+        <id>6</id>
+        <name>Крупа гречневая</name>
+        <price>3.40</price>
+        <category>grains</category>
+        <image>grechka.png</image>
+        <organic>false</organic>
+    </product>
+    <product>
+        <id>7</id>
+        <name>Молоко фермерское</name>
+        <price>3.50</price>
+        <category>dairy</category>
+        <image>milk.png</image>
+        <organic>true</organic>
+    </product>
+    <product>
+        <id>8</id>
+        <name>Картофель молодой</name>
+        <price>2.90</price>
+        <category>vegetables</category>
+        <image>potato.png</image>
+        <organic>false</organic>
+    </product>
+        <product>
+        <id>9</id>
+        <name>Крупа пшеничная</name>
+        <price>2.10</price>
+        <category>grains</category>
+        <image>psheno.png</image>
+        <organic>false</organic>
+    </product>
+
+</catalog>
