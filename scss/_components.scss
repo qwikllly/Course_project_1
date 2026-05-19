@@ -1,0 +1,59 @@
+.btn {
+  display: inline-block;
+  padding: 14px 30px;
+  background: $accent-pink;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 50px;
+  font-weight: 800;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(216, 27, 96, 0.3);
+
+  &:hover {
+    background: $bright-green;
+    box-shadow: 0 6px 20px rgba(39, 174, 96, 0.4);
+    transform: scale(1.05);
+  }
+
+  &.btn-card {
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 0.9rem;
+  }
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  color: white;
+  padding: 14px 28px;
+  border-radius: 50px;
+  font-weight: bold;
+  z-index: 10000;
+  animation: slideInRight 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  font-size: 14px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  transition: opacity 0.3s ease;
+  
+  &.success { background: $bright-green; }
+  &.error { background: #e74c3c; }
+  &.info { background: #3498db; }
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}

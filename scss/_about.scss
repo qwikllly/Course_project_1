@@ -1,0 +1,349 @@
+.about-farm {
+  padding: 80px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  
+  @media (max-width: 992px) {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+}
+
+.about-text {
+  h2 {
+    text-align: left;
+    margin-bottom: 25px;
+    
+    &::after {
+      margin: 10px 0;
+    }
+  }
+  
+  p {
+    margin-bottom: 20px;
+    font-size: 1.1rem;
+    color: #444;
+  }
+}
+
+.farm-slider {
+  position: relative;
+  width: 100%;
+  height: 450px;
+  border-radius: 25px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out;
+    
+    &.active {
+      opacity: 1;
+      z-index: 1;
+    }
+    
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background-color: #eee;
+    }
+  }
+  
+  .slide-caption {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: rgba(27, 48, 27, 0.8);
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    z-index: 2;
+  }
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.6);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 20px;
+  transition: 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  &:hover {
+    background: #fff;
+    color: $bright-green;
+  }
+  
+  &.prev {
+    left: 15px;
+  }
+  
+  &.next {
+    right: 15px;
+  }
+}
+
+.slider-dots {
+  position: absolute;
+  bottom: 20px;
+  right: 25px;
+  z-index: 10;
+  display: flex;
+  gap: 10px;
+  
+  .dot {
+    width: 12px;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+    
+    &.active {
+      background: #fff;
+      transform: scale(1.2);
+    }
+  }
+}
+
+.team-section {
+  padding: 80px 0;
+  border-top: 3px solid $bright-green;
+  margin-top: 20px;
+  
+  h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    font-size: 2.5rem;
+    
+    &::after {
+      content: "";
+      display: block;
+      width: 60px;
+      height: 4px;
+      background: $accent-pink;
+      margin: 10px auto;
+      border-radius: 2px;
+    }
+  }
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  
+  @media (max-width: 1024px) and (min-width: 769px) {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: 25px;
+    max-width: 350px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.team-card {
+  background: $white;
+  padding: 35px 25px;
+  border-radius: 20px;
+  border: 2px solid #EEE;
+  transition: all 0.4s ease;
+  text-align: center;
+  width: 100%;
+  
+  &:hover {
+    transform: translateY(-8px);
+    border-color: $bright-green;
+    box-shadow: 0 15px 30px rgba(39, 174, 96, 0.1);
+  }
+  
+  .team-photo {
+    width: 100%;
+    height: 300px;
+    border-radius: 16px;
+    margin: -10px 0 10px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  
+  .role {
+    display: inline-block;
+    color: $bright-green;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+  
+  h3 {
+    margin-bottom: 12px;
+    color: $dark-green;
+    font-size: 1.3rem;
+  }
+  
+  .bio {
+    font-size: 0.95rem;
+    color: #666;
+    line-height: 1.5;
+    margin: 0;
+  }
+  
+  @media (max-width: 480px) {
+    padding: 25px 20px;
+    
+    .team-photo {
+      height: 250px;
+    }
+    
+    h3 {
+      font-size: 1.2rem;
+    }
+    
+    .bio {
+      font-size: 0.9rem;
+    }
+  }
+}
+
+.team-card.founder .team-photo {
+  background-image: url("../img/ksusha.jpg");
+}
+
+.team-card.agronom .team-photo {
+  background-image: url("../img/nika.jpg");
+}
+
+.team-card.manager .team-photo {
+  background-image: url("../img/nastya.jpg");
+}
+
+.team-card.logistics .team-photo {
+  background-image: url("../img/elli.jpg");
+}
+
+// Дополнительные медиазапросы
+@media (max-width: 576px) {
+  .about-farm {
+    padding: 50px 0;
+  }
+  
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+  
+  .about-text {
+    text-align: center;
+    
+    h2 {
+      text-align: center;
+      &::after {
+        margin: 10px auto;
+      }
+    }
+    
+    p {
+      text-align: left;
+      font-size: 1rem;
+    }
+  }
+  
+  .farm-slider {
+    height: 280px;
+  }
+  
+  .slider-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  
+  .team-section {
+    padding: 50px 0;
+    
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 35px;
+    }
+  }
+  
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  
+  .team-card {
+    padding: 25px 20px;
+    
+    .team-photo {
+      height: 250px;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .about-grid {
+    gap: 70px;
+  }
+  
+  .farm-slider {
+    height: 480px;
+  }
+  
+  .team-grid {
+    gap: 35px;
+  }
+  
+  .team-card {
+    .team-photo {
+      height: 320px;
+    }
+  }
+}
+
+@media (min-width: 1441px) {
+  .about-farm {
+    padding: 100px 0;
+  }
+  
+  .farm-slider {
+    height: 550px;
+  }
+  
+  .team-section {
+    padding: 100px 0;
+  }
+  
+  .team-grid {
+    gap: 40px;
+  }
+}

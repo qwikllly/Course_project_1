@@ -1,0 +1,254 @@
+.cart-layout {
+  display: grid;
+  grid-template-columns: 1fr 380px;
+  gap: 40px;
+  
+  @media (max-width: 900px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.cart-items-col {
+  background: #fff;
+  border-radius: 20px;
+  border: 2px solid #EEE;
+  padding: 20px;
+}
+
+.cart-checkout-col {
+  .checkout-card {
+    background: #fff;
+    border-radius: 20px;
+    border: 2px solid #EEE;
+    padding: 25px;
+    position: sticky;
+    top: 100px;
+    
+    h3 {
+      font-size: 1.3rem;
+      color: $dark-green;
+      margin-bottom: 20px;
+      padding-bottom: 10px;
+      border-bottom: 2px solid $bright-green;
+      display: inline-block;
+    }
+  }
+}
+
+.delivery-field {
+  margin-bottom: 20px;
+  
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #333;
+    font-size: 0.9rem;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: all 0.3s;
+    
+    &:focus {
+      outline: none;
+      border-color: $bright-green;
+      box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.1);
+    }
+  }
+  
+  textarea {
+    resize: vertical;
+  }
+}
+
+.cart-summary {
+  margin: 25px 0;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+  
+  .summary-row.total {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0;
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: $dark-green;
+  }
+}
+
+.checkout-buttons {
+  display: flex;
+  gap: 15px;
+  
+  @media (max-width: 480px) {
+    flex-direction: column;
+  }
+  
+  .btn-checkout {
+    flex: 2;
+    background: $bright-green;
+    box-shadow: 0 4px 15px rgba(39, 174, 96, 0.3);
+    
+    &:hover {
+      background: #1e8e4f;
+      transform: scale(1.02);
+    }
+  }
+  
+  .btn-clear {
+    flex: 1;
+    background: #e74c3c;
+    box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
+    
+    &:hover {
+      background: #c0392b;
+      transform: scale(1.02);
+    }
+  }
+}
+
+// Стили для кнопки удаления (как было в оригинале)
+.remove-btn {
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.3s;
+  
+  &:hover {
+    background: #ff4757;
+  }
+}
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  
+  &:last-child {
+    border-bottom: none;
+  }
+  
+  .cart-item-info {
+    flex: 1;
+    
+    .cart-item-name {
+      font-weight: 600;
+      color: $dark-green;
+      margin-bottom: 5px;
+    }
+    
+    .cart-item-price {
+      color: $bright-green;
+      font-size: 0.9rem;
+    }
+  }
+  
+  .cart-item-remove {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 5px 10px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    
+    &:hover {
+      background: #ffebee;
+    }
+  }
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 60px 20px;
+  
+  p {
+    font-size: 1.2rem;
+    color: #666;
+    margin-bottom: 20px;
+  }
+  
+  .btn {
+    display: inline-block;
+  }
+}
+
+// Медиазапросы
+@media (max-width: 576px) {
+  .cart-layout {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+  
+  .cart-items-col {
+    padding: 15px;
+    overflow-x: auto;
+  }
+  
+  .cart-checkout-col .checkout-card {
+    padding: 20px;
+    position: static;
+  }
+  
+  .checkout-buttons {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .remove-btn {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+  
+  .empty-cart {
+    padding: 40px 15px;
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .cart-layout {
+    grid-template-columns: 1fr 350px;
+    gap: 30px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .cart-layout {
+    gap: 50px;
+  }
+  
+  .cart-checkout-col .checkout-card {
+    padding: 30px;
+  }
+}
+
+@media (min-width: 1441px) {
+  .cart-layout {
+    gap: 60px;
+  }
+  
+  .cart-items-col {
+    padding: 30px;
+  }
+  
+  .cart-checkout-col .checkout-card {
+    padding: 35px;
+  }
+}

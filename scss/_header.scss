@@ -1,0 +1,276 @@
+.header {
+  background: $white;
+  padding: 15px 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+  }
+
+  .logo {
+    display: flex;
+    align-items: center;
+    font-weight: 800;
+    font-size: 26px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    gap: 10px;
+    animation: slideLogo 1s ease-out forwards;
+    
+    svg {
+      width: 45px;
+      height: 45px;
+      transition: transform 0.3s ease;
+    }
+    
+    &:hover svg {
+      transform: rotate(2deg) scale(1.02);
+    }
+    
+    span {
+      display: inline-block;
+      opacity: 0;
+      transform: translateX(-15px);
+      animation: textSlide 1.2s ease-out forwards 0.5s;
+    }
+  }
+}
+
+.menu-toggle {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
+.hamburger {
+  display: none;
+  font-size: 30px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: $dark-green;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  justify-content: center;
+  align-items: center;
+  
+  &:hover {
+    background: rgba(39, 174, 96, 0.1);
+  }
+}
+
+.nav {
+  display: flex;
+  gap: 10px;
+  
+  a {
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    color: $dark-green;
+    font-weight: 700;
+    transition: all 0.3s ease;
+
+    &:hover {
+      background: rgba(39, 174, 96, 0.1);
+      color: $bright-green;
+    }
+
+    &.active {
+      background: $bright-green;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+    }
+  }
+}
+
+@keyframes slideLogo {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes textSlide {
+  from {
+    opacity: 0;
+    transform: translateX(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.logo svg path[stroke="#1B301B"],
+.logo svg path[stroke="#27AE60"] {
+  stroke-dasharray: 300;
+  stroke-dashoffset: 300;
+  animation: drawLine 0.8s ease forwards;
+}
+
+.logo svg path[stroke="#1B301B"]:nth-of-type(1) { animation-delay: 0.1s; }
+.logo svg path[stroke="#1B301B"]:nth-of-type(2) { animation-delay: 0.2s; }
+.logo svg path[stroke="#1B301B"]:nth-of-type(3) { animation-delay: 0.3s; }
+.logo svg path[stroke="#1B301B"]:nth-of-type(4) { animation-delay: 0.4s; }
+.logo svg path[stroke="#1B301B"]:nth-of-type(5) { animation-delay: 0.5s; }
+.logo svg path[stroke="#1B301B"]:nth-of-type(6) { animation-delay: 0.6s; }
+.logo svg path[stroke="#27AE60"] { animation-delay: 0.7s; }
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 300; }
+  to { stroke-dashoffset: 0; }
+}
+
+.logo svg path[fill="#27AE60"] {
+  opacity: 0;
+  animation: fadeLeaf 0.5s ease forwards;
+}
+
+.logo svg path[fill="#27AE60"]:nth-of-type(1) { animation-delay: 0.15s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(2) { animation-delay: 0.25s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(3) { animation-delay: 0.35s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(4) { animation-delay: 0.45s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(5) { animation-delay: 0.55s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(6) { animation-delay: 0.65s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(7) { animation-delay: 0.75s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(8) { animation-delay: 0.85s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(9) { animation-delay: 0.95s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(10) { animation-delay: 1.05s; }
+.logo svg path[fill="#27AE60"]:nth-of-type(11) { animation-delay: 1.15s; }
+
+@keyframes fadeLeaf {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ===== МЕДИАЗАПРОСЫ ===== */
+
+/* Для экранов ДО 768px (телефоны) — показываем гамбургер */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav {
+    position: absolute;
+    top: 70px;
+    left: 0;
+    right: 0;
+    background: $white;
+    flex-direction: column;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    border-radius: 0 0 20px 20px;
+  }
+  
+  .menu-toggle:checked ~ .nav {
+    max-height: 400px;
+    transition: max-height 0.5s ease-in;
+    padding: 20px 0;
+  }
+  
+  .nav a {
+    padding: 12px 20px;
+    text-align: center;
+    border-bottom: 1px solid #eee;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    
+    &:last-child {
+      border-bottom: none;
+    }
+  }
+  
+  .menu-toggle:checked ~ .nav a {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .menu-toggle:checked ~ .nav a:nth-child(1) { transition-delay: 0.05s; }
+  .menu-toggle:checked ~ .nav a:nth-child(2) { transition-delay: 0.1s; }
+  .menu-toggle:checked ~ .nav a:nth-child(3) { transition-delay: 0.15s; }
+  .menu-toggle:checked ~ .nav a:nth-child(4) { transition-delay: 0.2s; }
+  .menu-toggle:checked ~ .nav a:nth-child(5) { transition-delay: 0.25s; }
+}
+
+/* Для экранов БОЛЬШЕ 768px (ноутбуки, десктопы) — скрываем гамбургер, показываем горизонтальное меню */
+@media (min-width: 769px) {
+  .hamburger {
+    display: none !important;
+  }
+  
+  .nav {
+    display: flex !important;
+    position: static;
+    max-height: none !important;
+    overflow: visible !important;
+    flex-direction: row;
+    gap: 10px;
+    background: transparent;
+    box-shadow: none;
+    padding: 0 !important;
+  }
+  
+  .nav a {
+    padding: 8px 16px;
+    opacity: 1 !important;
+    transform: none !important;
+    border-bottom: none !important;
+    
+    &:hover {
+      background: rgba(39, 174, 96, 0.1);
+      color: $bright-green;
+    }
+    
+    &.active {
+      background: $bright-green;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(39, 174, 96, 0.3);
+    }
+  }
+}
+
+/* Для больших десктопов (опционально) */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .nav a {
+    padding: 10px 20px;
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1441px) {
+  .container {
+    max-width: 1400px;
+  }
+  .nav a {
+    padding: 12px 24px;
+    font-size: 1.1rem;
+  }
+}

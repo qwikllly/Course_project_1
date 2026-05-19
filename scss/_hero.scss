@@ -1,0 +1,104 @@
+.hero {
+  min-height: 70vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #eef7ee 0%, #fdeef4 100%);
+  border-bottom: 5px solid $bright-green;
+  width: 100%;
+
+  .container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  h1 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+
+    .highlight {
+      color: $bright-green;
+    }
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin-bottom: 30px;
+    color: #444;
+  }
+}
+
+// Оригинальные стили для планшетов (768px)
+@media (max-width: 768px) {
+  .hero {
+    min-height: 50vh;
+    text-align: center;
+    
+    h1 {
+      font-size: 2.5rem;
+    }
+    
+    p {
+      font-size: 1.1rem;
+    }
+  }
+}
+
+// Дополнительные медиазапросы (сохраняют ту же логику)
+@media (max-width: 576px) {
+  .hero {
+    min-height: 50vh;
+    text-align: center;
+    
+    h1 {
+      font-size: 2rem;
+    }
+    
+    p {
+      font-size: 1rem;
+    }
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .hero {
+    min-height: 60vh;
+    
+    h1 {
+      font-size: 3.2rem;
+    }
+    
+    p {
+      font-size: 1.2rem;
+    }
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .hero {
+    min-height: 70vh;
+    
+    h1 {
+      font-size: 4rem;
+    }
+    
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+@media (min-width: 1441px) {
+  .hero {
+    min-height: 80vh;
+    
+    h1 {
+      font-size: 5rem;
+    }
+    
+    p {
+      font-size: 1.6rem;
+    }
+  }
+}
